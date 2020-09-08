@@ -35,9 +35,26 @@ directory should be a new file, `old_content.json`. The next time you run
 the script, it will check the HTML of the scraped webpages against that 
 stored in `old_content.json`.
 
-## Next steps
+## Set up script on schedule with crontab (Linux only)
 
-TODO: put this into a crontab
+Add executable privileges to the `bashman` script,
+then copy it to a binary directory, e.g.:
+
+```
+chmod +x bashman
+cp bashman $HOME/.local/bin
+```
+
+Open the crontab editor, and copy in the following settings:
+
+```
+DISPLAY=:0
+0 */8 * * * $HOME/.local/bin/bashman
+```
+
+The `DISPLAY` environment variable is required to allow the browser to open. The `0 */8 * * *` syntax means that the script will run every eight hours. If you moved `bashman` to a different bin, set the path there.
+
+You can redirect the output of the script to a logfile by appending `>> /var/log/cron.log`, for example.
 
 ## Contributors
 - [Hedley Stirrat](https://github.com/heds1)
