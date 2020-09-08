@@ -1,6 +1,7 @@
 import requests
 import json
 from webbrowser import open as wbo
+from datetime import datetime
 
 # define blog URL endpoints to search
 blog_urls = {
@@ -30,12 +31,14 @@ if 'first_time' not in locals():
     new_content_num = 0
     for i in new_content.keys():
         if new_content[i] != old_content[i]:
-            wbo(blog_urls[i], 0)
+            try:
+                wbo(blog_urls[i], 0)
+                print(datetime.now() +': Postman opened ' + i + '.')
+            except e:
+                print(e)
             new_content_num = new_content_num + 1
-    if new_content_num > 0:
-        print(str(new_content_num) + ' new webpage(s) opened.')
-    else:
-        print('No new webpages found.')
+    if new_content_num == 0:
+        print('No updated webpages found.')
 else:
     print('First time setup completed.')
 
