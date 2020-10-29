@@ -35,15 +35,24 @@ directory should be a new file, `old_content.json`. The next time you run
 the script, it will check the HTML of the scraped webpages against that 
 stored in `old_content.json`.
 
-## Set up script on schedule with crontab (Linux only)
+## Bash command (Linux)
 
-Add executable privileges to the `bashman` script,
+To avoid going to the postman directory and activating the virtual environment,
+you can just add executable privileges to the `bashman` script,
 then copy it to a binary directory, e.g.:
 
 ```
 chmod +x bashman
 cp bashman $HOME/.local/bin
 ```
+
+Simply call the script from any terminal:
+
+```
+bashman
+```
+
+## Set up script on schedule with crontab
 
 Open the crontab editor, and copy in the following settings:
 
