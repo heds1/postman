@@ -6,7 +6,10 @@ from datetime import datetime
 # define blog URL endpoints to search
 blog_urls = {
     'megan_stodel': 'https://www.meganstodel.com/',
-    'tunnelsup': 'https://www.tunnelsup.com/blog/archives/'
+    'tunnelsup': 'https://www.tunnelsup.com/blog/archives/',
+    'data_colada': 'http://www.datacolada.org/',
+    'dennis_schubert': 'https://schub.wtf/',
+    'rachel_by_the_bay': "https://rachelbythebay.com/",
 }
 
 # import previous webpage content
@@ -29,11 +32,11 @@ if 'first_time' not in locals():
     # if any new content is found that does not
     # match with old content, open in browser
     new_content_num = 0
-    for i in new_content.keys():
+    for i in old_content.keys():
         if new_content[i] != old_content[i]:
             try:
                 wbo(blog_urls[i], 0)
-                print(datetime.now() +': Postman opened ' + i + '.')
+                print(str(datetime.now()) +': Postman opened ' + i + '.')
             except e:
                 print(e)
             new_content_num = new_content_num + 1
