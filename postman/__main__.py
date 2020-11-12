@@ -73,7 +73,7 @@ for i in blogs:
 
 
 
-    links_dict[i] = blog.links
+    links_dict[i] = blog.links#
 
 if 'first_time' not in locals():
     # if any new content is found that does not
