@@ -1,5 +1,4 @@
 #!/bin/bash
 # bash script to call the postman Python package
-cd $HOME/docs/code/postman
-source env/bin/activate
+source $HOME/.envs/dev/bin/activate
 python postman
